@@ -1,7 +1,7 @@
 use crate::Length;
 
 impl Length {
-    pub fn as_milimeters(&self) -> Self {
+    pub fn as_meters(&self) -> Self {
         match self {
             Self::In(val) => Self::MM(val * 25.4),
             Self::Ft(val) => Self::MM(val * 304.8),

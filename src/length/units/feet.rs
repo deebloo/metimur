@@ -8,6 +8,9 @@ impl Length {
             Self::Yd(val) => Self::Ft(val * 3.),
             Self::Mi(val) => Self::Ft(val * 5280.),
             Self::MM(val) => Self::Ft(val / 304.8),
+            Self::CM(val) => Self::Ft(val / 304.8), // TODO
+            Self::M(val) => Self::Ft(val / 304.8),  // TODO
+            Self::KM(val) => Self::Ft(val / 304.8), // TODO
         }
     }
 }
