@@ -7,10 +7,10 @@ impl Length {
             Self::Ft(val) => Self::CM(val * 304.8),
             Self::Yd(val) => Self::CM(val * 914.4),
             Self::Mi(val) => Self::CM(val * 1.609e+6),
-            Self::MM(_) => *self,
-            Self::CM(val) => Self::CM(val / 304.8), // TODO
-            Self::M(val) => Self::CM(val / 304.8),  // TODO
-            Self::KM(val) => Self::CM(val / 304.8), // TODO
+            Self::MM(val) => Self::CM(val / 10.),
+            Self::CM(_) => *self,
+            Self::M(val) => Self::CM(val * 100.),
+            Self::KM(val) => Self::CM(val * 100000.),
         }
     }
 }

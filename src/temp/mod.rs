@@ -1,5 +1,6 @@
 mod into_temp;
 mod ops;
+mod units;
 
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
@@ -13,46 +14,6 @@ pub enum Temp {
 }
 
 impl Temp {
-    pub fn as_c(&self) -> Self {
-        match self {
-            Self::C(val) => Self::C(*val),
-            Self::F(val) => {
-                let raw = (val - 32.) * (5. / 9.);
-
-                Temp::C(raw)
-            }
-            Self::K(val) => Temp::C(val - 273.15),
-        }
-    }
-
-    pub fn as_f(&self) -> Self {
-        match self {
-            Self::C(temp) => {
-                let raw = (temp * (9. / 5.)) + 32.;
-
-                Temp::F(raw)
-            }
-            Self::F(val) => Self::F(*val),
-            Self::K(temp) => {
-                let raw = (temp - 273.15) * (9. / 5.) + 32.;
-
-                Self::F(raw)
-            }
-        }
-    }
-
-    pub fn as_k(&self) -> Self {
-        match self {
-            Self::C(val) => Self::K(val + 273.15),
-            Self::F(_) => {
-                let c: f64 = self.as_c().into();
-
-                Temp::K(c + 273.15)
-            }
-            Self::K(val) => Self::K(*val),
-        }
-    }
-
     pub fn round(&self) -> Self {
         match self {
             Self::C(val) => Self::C(round(*val)),
