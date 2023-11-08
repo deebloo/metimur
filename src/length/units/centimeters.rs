@@ -17,11 +17,11 @@ impl Length {
 
 #[test]
 fn should_convert_to_centemeters() {
-    assert_eq!(Length::CM(100000.), Length::In(1.).as_milimeters());
-    assert_eq!(Length::CM(100000.), Length::Ft(1.).as_milimeters());
-    assert_eq!(Length::CM(100000.), Length::Yd(1.).as_milimeters());
-    assert_eq!(Length::CM(100000.), Length::Mi(1.).as_milimeters());
-    assert_eq!(Length::CM(100000.), Length::MM(1.).as_milimeters());
-    assert_eq!(Length::CM(100000.), Length::M(1.).as_milimeters());
-    assert_eq!(Length::CM(100000.), Length::KM(1.).as_milimeters());
+    assert_eq!(Length::CM(25.4), Length::In(1.).as_centimeters());
+    assert_eq!(Length::CM(304.8), Length::Ft(1.).as_centimeters());
+    assert_eq!(Length::CM(914.4), Length::Yd(1.).as_centimeters());
+    assert_eq!(Length::CM(1.609e+6), Length::Mi(1.).as_centimeters());
+    assert_eq!(Length::CM(1.), Length::MM(10.).as_centimeters());
+    assert_eq!(Length::CM(100.), Length::M(1.).as_centimeters());
+    assert_eq!(Length::CM(100000.), Length::KM(1.).as_centimeters());
 }
