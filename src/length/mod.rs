@@ -1,4 +1,3 @@
-mod ops;
 mod units;
 
 #[cfg(feature = "serde")]
@@ -12,9 +11,9 @@ pub enum Length {
     Yd(f64),
     Mi(f64),
     MM(f64),
-    // CM(f64),
-    // M(f64),
-    // KM(f64),
+    CM(f64),
+    M(f64),
+    KM(f64),
 }
 
 impl Length {
@@ -25,6 +24,9 @@ impl Length {
             Self::Yd(val) => Self::Yd(round(*val)),
             Self::Mi(val) => Self::Mi(round(*val)),
             Self::MM(val) => Self::MM(round(*val)),
+            Self::CM(val) => Self::CM(round(*val)),
+            Self::M(val) => Self::M(round(*val)),
+            Self::KM(val) => Self::KM(round(*val)),
         }
     }
 }
@@ -37,6 +39,9 @@ impl Into<f64> for Length {
             Self::Yd(val) => val,
             Self::Mi(val) => val,
             Self::MM(val) => val,
+            Self::CM(val) => val,
+            Self::M(val) => val,
+            Self::KM(val) => val,
         }
     }
 }

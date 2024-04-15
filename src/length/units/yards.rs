@@ -8,6 +8,9 @@ impl Length {
             Self::Yd(_) => *self,
             Self::Mi(val) => Self::Yd(val * 1760.),
             Self::MM(val) => Self::Yd(val / 914.4),
+            Self::CM(val) => Self::Yd(val / 304.8), // TODO
+            Self::M(val) => Self::Yd(val / 304.8),  // TODO
+            Self::KM(val) => Self::Yd(val / 304.8), // TODO
         }
     }
 }
